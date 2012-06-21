@@ -9,6 +9,7 @@ import java.util.HashMap;
 import ro.gdg.web.model.Category;
 import ro.gdg.web.model.Product;
 import ro.gdg.web.model.TableBill;
+import ro.gdg.web.model.User;
 
 /**
  *
@@ -72,5 +73,18 @@ public class DBManager {
             categories.add(category);
         }
         return categories;
+    }
+
+    public static ArrayList<User> getUsers() {
+        ArrayList<User> users = new ArrayList<User>();
+        User user;
+        ArrayList<HashMap> results = DBUtil.executeQuery("Select * from users");
+        for (int i = 0; i < results.size(); i++) {
+            user = new User(results.get(i).get("email") + "",
+                    results.get(i).get("name") + "",
+                    results.get(i).get("type") + "");
+            users.add(user);
+        }
+        return users;
     }
 }
