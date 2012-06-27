@@ -50,14 +50,8 @@
                                     <p class="notes">cu ardei iute, paine si smantana</p>
                                 </li>
                                 <li>
-                                    <div class="prod">Apa plata</div>
-                                </li>
-                                <li>
                                     <div class="prod">Pizza Vegetariana</div>
                                     <p class="notes">fara masline</p>
-                                </li>
-                                <li>
-                                    <div class="prod">Heineken</div>
                                 </li>
                             </ul>
                             <a class="close" href="javascript:void(0);">Close</a>
@@ -77,14 +71,17 @@
                             </div>
                             <ul class="orderList">
                                 <li>
-                                    <div class="prod">Latte Macchiato</div>
+                                    <div class="prod">Platou rustic Pentathlon</div>
                                 </li>
                                 <li>
-                                    <div class="prod">Inghetata asortata</div>
-                                    <p class="notes">fara frisca</p>
+                                    <div class="prod ready">Pizza Prosciuto e funghi</div>
+                                    <p class="notes">cu porumb</p>
                                 </li>
                                 <li>
-                                    <div class="prod">Apa minerala</div>
+                                    <div class="prod">Aripioare Red Card</div>
+                                </li>
+                                <li>
+                                    <div class="prod ready">Cartofi prajiti</div>
                                 </li>
                             </ul>
                             <a class="close" href="javascript:void(0);">Close</a>
