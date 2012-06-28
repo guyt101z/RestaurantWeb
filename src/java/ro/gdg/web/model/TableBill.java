@@ -4,6 +4,8 @@
  */
 package ro.gdg.web.model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author diana
@@ -17,8 +19,9 @@ public class TableBill {
     private int tableNumber;
     private String date;
     private int status;
-    
-    public TableBill(String waiterEmail, int tableNumber, String date, int status){
+    private OrderedProduct[] products;
+
+    public TableBill(String waiterEmail, int tableNumber, String date, int status) {
         this.waiterEmail = waiterEmail;
         this.tableNumber = tableNumber;
         this.date = date;
@@ -56,5 +59,21 @@ public class TableBill {
     public void setWaiterEmail(String waiterEmail) {
         this.waiterEmail = waiterEmail;
     }
-    
+
+    public OrderedProduct[] getProducts() {
+        return products;
+    }
+
+    public void setProducts(OrderedProduct[] products) {
+        this.products = products;
+    }
+
+    public void add(OrderedProduct product) {
+        if (null == products){
+            products = new OrderedProduct[1];
+        } else {
+            products = new OrderedProduct[products.length];
+        }
+        products[products.length-1] = product;
+    }
 }

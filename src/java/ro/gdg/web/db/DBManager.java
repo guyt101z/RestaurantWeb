@@ -7,6 +7,7 @@ package ro.gdg.web.db;
 import java.util.ArrayList;
 import java.util.HashMap;
 import ro.gdg.web.model.Category;
+import ro.gdg.web.model.OrderedProduct;
 import ro.gdg.web.model.Product;
 import ro.gdg.web.model.TableBill;
 import ro.gdg.web.model.User;
@@ -49,6 +50,18 @@ public class DBManager {
                     Integer.parseInt(results.get(i).get("table_number") + ""),
                     results.get(i).get("date") + "",
                     Integer.parseInt(results.get(i).get("status") + ""));
+            System.out.println("Bill id= " + results.get(i).get("id"));
+            ArrayList<HashMap> results2 = DBUtil.executeQuery("Select * from product_ordered where table_bill_id=" + results.get(i).get("id"));
+            OrderedProduct orderedProduct;
+            for (i = 0; i < results2.size(); i++) {
+                orderedProduct = new OrderedProduct(Long.parseLong(results2.get(i).get("table_bill_id") + ""),
+                        Long.parseLong(results2.get(i).get("product_id") + ""),
+                        Integer.parseInt(results2.get(i).get("state_id") + ""),
+                        results2.get(i).get("extra_info") + "");
+                bill.add(orderedProduct);
+                System.out.println("Bill = " + orderedProduct.toString());
+            }
+
             bills.add(bill);
         }
         return bills;

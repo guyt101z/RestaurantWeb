@@ -14,11 +14,16 @@
     PrintWriter pw = response.getWriter();
 
     if (DBManager.verifyUser(email, password)) {
-        System.out.println("Mobile login successful with " + email + " and " + password);
+        String type = DBManager.getType(email);
+        if (type.equals("waiter")) {
+            System.out.println("Mobile login successful with " + email + " and " + password);
 
-        AuthResponse authResponse = new AuthResponse(AuthResponse.AUTH_STATUS_OK, email);
-        JSONObject userJson = new JSONObject(authResponse);
-        pw.append(userJson.toString());
+            AuthResponse authResponse = new AuthResponse(AuthResponse.AUTH_STATUS_OK, email);
+            JSONObject userJson = new JSONObject(authResponse);
+            pw.append(userJson.toString());
+        } else {
+            response.sendError(403, "Forbidden");
+        }
     } else {
         response.sendError(403, "Forbidden");
     }
