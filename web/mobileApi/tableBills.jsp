@@ -30,14 +30,6 @@
         JSONObject billJson;
         for (TableBill bill : tableBills) {
             billJson = new JSONObject(bill);
-            if (bill.getProducts() != null) {
-                JSONArray prodsJSON = new JSONArray();
-                JSONArray products = new JSONArray();
-                for (OrderedProduct product : bill.getProducts()) {
-                    products.put(new JSONObject(product));
-                }
-                prodsJSON.put(products);
-            }
             System.out.println("billJson = " + billJson.toString());
             bills.put(billJson);
         }
